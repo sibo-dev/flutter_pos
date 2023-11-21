@@ -1,8 +1,5 @@
-import 'dart:typed_data';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 
 import '../../common/common.dart';
@@ -162,6 +159,7 @@ class _BottomAppBarContainer extends StatelessWidget {
   final Widget child;
   final double height;
 
+  // ignore: unused_element
   const _BottomAppBarContainer(this.expanded, {required this.child, this.height = 500.0});
 
   @override

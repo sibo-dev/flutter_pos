@@ -32,7 +32,7 @@ class Printer {
     }
 
     var isConnected = await instance.isConnected;
-    if (!isConnected) {
+    if (!isConnected!) {
       _device = _bondedDevices![0];
       try {
         await instance.connect(_device);

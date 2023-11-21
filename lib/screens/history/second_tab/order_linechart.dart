@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:provider/provider.dart';
 import '../../../theme/rally.dart';
@@ -97,16 +96,16 @@ class HistoryOrderLineChart extends StatelessWidget {
                 titlesData: FlTitlesData(
                   leftTitles: SideTitles(
                     showTitles: true,
-                    getTextStyles: Theme.of(context).textTheme.bodyText2 != null
-                        ? (value) => Theme.of(context).textTheme.bodyText2!
+                    getTextStyles: Theme.of(context).textTheme.bodyMedium != null
+                        ? (value) => Theme.of(context).textTheme.bodyMedium!
                         : null,
                     margin: 12.0,
                     interval: _interval(groupedData),
                   ),
                   bottomTitles: SideTitles(
                     showTitles: true,
-                    getTextStyles: Theme.of(context).textTheme.bodyText2 != null
-                        ? (value) => Theme.of(context).textTheme.bodyText2!
+                    getTextStyles: Theme.of(context).textTheme.bodyMedium != null
+                        ? (value) => Theme.of(context).textTheme.bodyMedium!
                         : null,
                     margin: 24.0,
                     // convert index value back to yyyymmdd

@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -46,7 +45,7 @@ class DraggableWidgetState extends State<DraggableWidget> {
   void initState() {
     top = widget.x;
     left = widget.y;
-    WidgetsBinding.instance!.addPostFrameCallback((_) => getSize());
+    WidgetsBinding.instance.addPostFrameCallback((_) => getSize());
     super.initState();
   }
 

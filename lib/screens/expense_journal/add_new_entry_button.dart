@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 
 import '../../common/common.dart';
 import '../../provider/src.dart';
-import '../../provider/supplier/expense_journal_supplier.dart';
 
 class AddNewEntryButton extends StatelessWidget {
   @override

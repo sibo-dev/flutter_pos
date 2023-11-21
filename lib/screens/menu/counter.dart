@@ -133,7 +133,7 @@ class _CounterState extends State<Counter> with SingleTickerProviderStateMixin {
                             controller: widget.textEditingController,
                             enabled: false,
                             textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.headline5,
+                            style: Theme.of(context).textTheme.headlineSmall,
                           ),
                         ),
                         Expanded(

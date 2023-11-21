@@ -2,6 +2,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 const bottomNavbarHeight = 48.0;
@@ -18,8 +19,8 @@ class RallyColors {
 ThemeData buildRallyTheme() {
   final base = ThemeData.light();
   return ThemeData(
-    appBarTheme: const AppBarTheme(brightness: Brightness.dark, elevation: 0),
-    bottomSheetTheme: BottomSheetThemeData(backgroundColor: base.bottomAppBarColor),
+    appBarTheme: const AppBarTheme(elevation: 0, systemOverlayStyle: SystemUiOverlayStyle.light),
+    bottomSheetTheme: BottomSheetThemeData(backgroundColor: base.bottomAppBarTheme.color),
     pageTransitionsTheme: PageTransitionsTheme(builders: {
       TargetPlatform.android: const SharedAxisPageTransitionsBuilder(
         // fillColor: RallyColors.primaryBackground,
@@ -56,12 +57,12 @@ ThemeData buildRallyTheme() {
     highlightColor: RallyColors.primaryColor,
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-        primary: RallyColors.focusColor,
+        foregroundColor: RallyColors.focusColor,
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        primary: RallyColors.buttonColor,
+        backgroundColor: RallyColors.buttonColor,
       ),
     ),
     // canvasColor: RallyColors.primaryBackground, // also works for dropdown button
@@ -92,21 +93,21 @@ ThemeData buildRallyTheme() {
 TextTheme _buildRallyTextTheme(TextTheme base) {
   return base
       .copyWith(
-        bodyText2: GoogleFonts.robotoCondensed(
+        bodyMedium: GoogleFonts.robotoCondensed(
           fontSize: 14,
           fontWeight: FontWeight.w400,
           letterSpacing: letterSpacingOrNone(0.5),
         ),
-        bodyText1: GoogleFonts.eczar(
+        bodyLarge: GoogleFonts.eczar(
           fontSize: 40,
           fontWeight: FontWeight.w400,
           letterSpacing: letterSpacingOrNone(1.4),
         ),
-        button: GoogleFonts.robotoCondensed(
+        labelLarge: GoogleFonts.robotoCondensed(
           fontWeight: FontWeight.w700,
           letterSpacing: letterSpacingOrNone(2.8),
         ),
-        headline5: GoogleFonts.eczar(
+        headlineSmall: GoogleFonts.eczar(
           fontSize: 40,
           fontWeight: FontWeight.w600,
           letterSpacing: letterSpacingOrNone(1.4),

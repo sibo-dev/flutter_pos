@@ -25,29 +25,33 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  intl: ^0.17.0
+  intl: 0.18.0
   animations: ^2.0.0
-  provider: ^5.0.0
+  provider: ^6.1.1
   localstorage:
     git:
-      url: git://github.com/tcd93/flutter_localstorage
+      #url: git://github.com/tcd93/flutter_localstorage
+      url: https://github.com/tcd93/flutter_localstorage.git
       ref: master
-  image_picker: ^0.7.2
-  image_picker_for_web: ^2.0.0
+  image_picker: ^1.0.4
+  image_picker_for_web: ^3.0.1
   blue_thermal_printer:
     git:
-      url: git://github.com/tcd93/blue_thermal_printer
+      #url: git://github.com/tcd93/blue_thermal_printer
+      url: https://github.com/tcd93/blue_thermal_printer.git
       ref: master
-  google_fonts: ^2.0.0
+  google_fonts: ^6.1.0
   date_range_picker:
     git:
-      url: git://github.com/tcd93/date_range_picker
+      #url: git://github.com/tcd93/date_range_picker
+      url: https://github.com/tcd93/date_range_picker.git
       ref: master
   super_tooltip:
     git:
-      url: git://github.com/tcd93/super_tooltip
+      #url: git://github.com/tcd93/super_tooltip
+      url: https://github.com/tcd93/super_tooltip.git
       ref: master
-  fl_chart: ^0.36.1
+  fl_chart: ^0.64.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -57,7 +61,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   pedantic: ^1.9.0
-  flutter_launcher_icons: ^0.9.0
+  flutter_launcher_icons: ^0.13.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

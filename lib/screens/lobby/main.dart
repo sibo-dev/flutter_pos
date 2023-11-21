@@ -1,6 +1,7 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -97,7 +98,7 @@ class _InteractiveBody extends StatelessWidget {
 
   final TransformationController transformController = TransformationController();
 
-  builditem(Supplier supplier, i, context) {
+  InkWell builditem(Supplier supplier, i, context) {
     var supplier = Provider.of<Supplier>(context, listen: false);
     final tableid = supplier.tables[i].id;
     final table = supplier.getTable(tableid);
@@ -288,6 +289,7 @@ class _InteractiveBody extends StatelessWidget {
 // ******************************* //
 // int? tableid;
 void _addTable(BuildContext context) {
+  // ignore: unused_local_variable
   var supplier = Provider.of<Supplier>(context, listen: false);
 }
 

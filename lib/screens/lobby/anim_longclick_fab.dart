@@ -53,7 +53,7 @@ class _AnimatedLongClickableFABState extends State<AnimatedLongClickableFAB>
 
   @override
   void initState() {
-    WidgetsBinding.instance!.addPostFrameCallback((_) => tooltip.show(context));
+    WidgetsBinding.instance.addPostFrameCallback((_) => tooltip.show(context));
     super.initState();
   }
 

@@ -5,6 +5,7 @@ import 'package:posapp/extras/new_home.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+// ignore: unused_import
 import 'theme/theme.dart';
 import 'database_factory.dart';
 import 'provider/src.dart';
@@ -12,6 +13,7 @@ import 'screens/order_details/main.dart';
 import 'screens/edit_menu/main.dart';
 import 'screens/history/main.dart';
 import 'screens/expense_journal/main.dart';
+// ignore: unused_import
 import 'screens/lobby/main.dart';
 import 'screens/menu/main.dart';
 import 'storage_engines/connection_interface.dart';
@@ -47,7 +49,7 @@ class PosApp extends StatelessWidget {
           // trackColor: MaterialStateProperty.resolveWith((states) => states)
         ),
         textTheme: TextTheme(
-          caption: TextStyle(color: Colors.white, fontSize: 14),
+          bodySmall: TextStyle(color: Colors.white, fontSize: 14),
         ),
         // accentColor: Colors.amber,
         // primaryColor: Colors.amber,r
