@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, unused_local_variable
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -68,21 +70,21 @@ class HistoryOrderLineChart extends StatelessWidget {
                 backgroundColor: RallyColors.primaryBackground,
                 lineTouchData: LineTouchData(
                   // show tooltips on all spots on long tap
-                  touchCallback: (LineTouchResponse touchResponse) {
-                    Timer? _timer;
-                    if (touchResponse.touchInput.down) {
-                      _timer = Timer(Duration(seconds: 1), () {
-                        setState(() {
-                          showTooltipsOnAllSpots = touchResponse.touchInput.down;
-                        });
-                      });
-                    } else {
-                      _timer?.cancel();
-                      setState(() {
-                        showTooltipsOnAllSpots = touchResponse.touchInput.down;
-                      });
-                    }
-                  },
+                  // touchCallback: (LineTouchResponse touchResponse) {
+                  //   Timer? _timer;
+                  //   if (touchResponse.touchInput.down) {
+                  //     _timer = Timer(Duration(seconds: 1), () {
+                  //       setState(() {
+                  //         showTooltipsOnAllSpots = touchResponse.touchInput.down;
+                  //       });
+                  //     });
+                  //   } else {
+                  //     _timer?.cancel();
+                  //     setState(() {
+                  //       showTooltipsOnAllSpots = touchResponse.touchInput.down;
+                  //     });
+                  //   }
+                  // },
                   // must disable this for showingTooltipIndicators to work
                   handleBuiltInTouches: !showTooltipsOnAllSpots,
                   touchSpotThreshold: 20.0,
@@ -95,34 +97,39 @@ class HistoryOrderLineChart extends StatelessWidget {
                   ),
                 ),
                 titlesData: FlTitlesData(
-                  leftTitles: SideTitles(
-                    showTitles: true,
-                    getTextStyles: Theme.of(context).textTheme.bodyMedium != null
-                        ? (value) => Theme.of(context).textTheme.bodyMedium!
-                        : null,
-                    margin: 12.0,
-                    interval: _interval(groupedData),
-                  ),
-                  bottomTitles: SideTitles(
-                    showTitles: true,
-                    getTextStyles: Theme.of(context).textTheme.bodyMedium != null
-                        ? (value) => Theme.of(context).textTheme.bodyMedium!
-                        : null,
-                    margin: 24.0,
-                    // convert index value back to yyyymmdd
-                    getTitles: (idx) => groupedData[idx.toInt()][0],
+                  show: true,
+                  leftTitles: AxisTitles(
+                    sideTitles: SideTitles(
+                      showTitles: true,
+                      //     getTextStyles: Theme.of(context).textTheme.bodyMedium != null
+                      //         ? (value) => Theme.of(context).textTheme.bodyMedium!
+                      //         : null,
+                      //     margin: 12.0,
+                      //     interval: _interval(groupedData),
+                      //   ),
+                      //   bottomTitles: SideTitles(
+                      //     showTitles: true,
+                      //     getTextStyles: Theme.of(context).textTheme.bodyMedium != null
+                      //         ? (value) => Theme.of(context).textTheme.bodyMedium!
+                      //         : null,
+                      //     margin: 24.0,
+                      //     // convert index value back to yyyymmdd
+                      //     getTitles: (idx) => groupedData[idx.toInt()][0],
+                      //   ),
+                      // ),
+                      // gridData: FlGridData(show: false),
+                      // minY: 0.0,
+                      // showingTooltipIndicators: showTooltipsOnAllSpots
+                      //     ? [
+                      //         ..._spots.map(
+                      //           (spot) => ShowingTooltipIndicators([LineBarSpot(_mainChart, 0, spot)]),
+                      //         ),
+                      //       ]
+                      //     : [],
+                      // lineBarsData: [_mainChart],
+                    ),
                   ),
                 ),
-                gridData: FlGridData(show: false),
-                minY: 0.0,
-                showingTooltipIndicators: showTooltipsOnAllSpots
-                    ? [
-                        ..._spots.map(
-                          (spot) => ShowingTooltipIndicators([LineBarSpot(_mainChart, 0, spot)]),
-                        ),
-                      ]
-                    : [],
-                lineBarsData: [_mainChart],
               ),
             ),
           );
