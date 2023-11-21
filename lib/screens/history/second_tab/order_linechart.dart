@@ -48,9 +48,10 @@ class HistoryOrderLineChart extends StatelessWidget {
     final _spots = _mapGroupDataToSpots(groupedData);
     final _mainChart = LineChartBarData(
       spots: _spots,
-      colors: [
-        RallyColors.primaryColor,
-      ],
+      // colors: [
+      //   const Color.fromRGBO(30, 185, 128, 1),
+      // ],
+      color: Colors.green,
       barWidth: 2,
       isStrokeCapRound: true,
       dotData: FlDotData(show: true),

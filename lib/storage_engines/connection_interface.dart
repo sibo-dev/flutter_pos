@@ -14,8 +14,10 @@ class OrderIO {
   /// Insert stringified version of [TableState] into database
   Future<void> insert(Order order) => Future.value();
 
-  /// Soft deletes an order in specified date
-  Future<Order> delete(DateTime day, int orderID) => Future.value();
+  // Soft deletes an order in specified date
+
+  // Future<Order> delete(DateTime day, int orderID) => Future.value();
+  Future<Order> delete(DateTime day, int orderID) => Future.value(delete(day, orderID));
 }
 
 /// Operations with the journal entries
@@ -50,9 +52,11 @@ class NodeIO {
 
   List<int> tableIDs() => [];
 
-  Future<List<int>> addTable(int tableID) => Future.value();
+  // Future<List<int>> addTable(int tableID) => Future.value();
+  Future<List<int>> addTable(int tableID) => Future.value([]);
 
-  Future<List<int>> removeTable(int tableID) => Future.value();
+  // Future<List<int>> removeTable(int tableID) => Future.value();
+  Future<List<int>> removeTable(int tableID) => Future.value([]);
 }
 
 class CoordinateIO {

@@ -54,7 +54,7 @@ class Avatar extends StatelessWidget {
 }
 
 Future<Uint8List?> _getImage() async {
-  final pickedFile = await ImagePicker().getImage(
+  final pickedFile = await ImagePicker().pickImage(
     source: ImageSource.gallery,
     maxHeight: _height,
     maxWidth: _width,
