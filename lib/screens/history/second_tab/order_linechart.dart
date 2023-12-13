@@ -50,10 +50,8 @@ class HistoryOrderLineChart extends StatelessWidget {
     final _spots = _mapGroupDataToSpots(groupedData);
     final _mainChart = LineChartBarData(
       spots: _spots,
-      // colors: [
-      //   const Color.fromRGBO(30, 185, 128, 1),
-      // ],
-      color: Colors.green,
+      //color: RallyColors().primaryColor,
+      color: Color(0xFF1EB980),
       barWidth: 2,
       isStrokeCapRound: true,
       dotData: FlDotData(show: true),
@@ -100,26 +98,27 @@ class HistoryOrderLineChart extends StatelessWidget {
                 titlesData: FlTitlesData(
                   show: true,
                   leftTitles: AxisTitles(
+                      sideTitles: SideTitles(
+                    showTitles: true,
+                    // getTextStyles: Theme.of(context).textTheme.bodyMedium != null
+                    //     ? (value) => Theme.of(context).textTheme.bodyMedium!
+                    //     : null,
+                    // margin: 12.0,
+                    interval: _interval(groupedData),
+                  )),
+                  bottomTitles: AxisTitles(
                     sideTitles: SideTitles(
                       showTitles: true,
-                      getTextStyles: Theme.of(context).textTheme.bodyMedium != null
-                          ? (value) => Theme.of(context).textTheme.bodyMedium!
-                          : null,
-                      margin: 12.0,
-                      interval: _interval(groupedData),
-                    ),
-                    bottomTitles: SideTitles(
-                      showTitles: true,
-                      getTextStyles: Theme.of(context).textTheme.bodyMedium != null
-                          ? (value) => Theme.of(context).textTheme.bodyMedium!
-                          : null,
-                      margin: 24.0,
+                      // getTextStyles: Theme.of(context).textTheme.bodyMedium != null
+                      //     ? (value) => Theme.of(context).textTheme.bodyMedium!
+                      //     : null,
+                      // margin: 24.0,
                       // convert index value back to yyyymmdd
-                      getTitles: (idx) => groupedData[idx.toInt()][0],
+                      // getTitles: (idx) => groupedData[idx.toInt()][0],
                     ),
                   ),
-                  gridData: FlGridData(show: false),
-                  minY: 0.0,
+                  // gridData: FlGridData(show: false),
+                  // minY: 0.0,
                   showingTooltipIndicators: showTooltipsOnAllSpots
                       ? [
                           ..._spots.map(
@@ -127,7 +126,7 @@ class HistoryOrderLineChart extends StatelessWidget {
                           ),
                         ]
                       : [],
-                  lineBarsData: [_mainChart],
+                  // lineBarsData: [_mainChart],
                 ),
               ),
             ),
