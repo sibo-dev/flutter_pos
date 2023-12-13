@@ -1,13 +1,13 @@
-// ignore_for_file: unused_import, unused_local_variable
+// ignore_for_file: unused_import, unused_local_variable, unnecessary_import
 
 import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:provider/provider.dart';
-import '../../../theme/rally.dart';
-
-import '../../../provider/src.dart';
+import 'package:posapp/theme/rally.dart';
+import 'package:posapp/theme/theme.dart';
+import 'package:posapp/provider/src.dart';
 
 class HistoryOrderLineChart extends StatelessWidget {
   @override
@@ -46,7 +46,7 @@ class HistoryOrderLineChart extends StatelessWidget {
   }
 
   Widget _drawLineChart(BuildContext context, List<List<dynamic>> groupedData) {
-    var showTooltipsOnAllSpots = false;
+    var showTooltipsOnAllSpots = true;
     final _spots = _mapGroupDataToSpots(groupedData);
     final _mainChart = LineChartBarData(
       spots: _spots,
@@ -70,21 +70,22 @@ class HistoryOrderLineChart extends StatelessWidget {
                 backgroundColor: RallyColors.primaryBackground,
                 lineTouchData: LineTouchData(
                   // show tooltips on all spots on long tap
-                  // touchCallback: (LineTouchResponse touchResponse) {
-                  //   Timer? _timer;
-                  //   if (touchResponse.touchInput.down) {
-                  //     _timer = Timer(Duration(seconds: 1), () {
-                  //       setState(() {
-                  //         showTooltipsOnAllSpots = touchResponse.touchInput.down;
-                  //       });
-                  //     });
-                  //   } else {
-                  //     _timer?.cancel();
-                  //     setState(() {
-                  //       showTooltipsOnAllSpots = touchResponse.touchInput.down;
-                  //     });
-                  //   }
-                  // },
+                  touchCallback: (FlTouchEvent touchEvent, LineTouchResponse? touchResponse) {
+                    Timer? _timer;
+                    if (touchEvent is FlTapDownEvent) {
+                      _timer = Timer(Duration(seconds: 1), () {
+                        setState(() {
+                          showTooltipsOnAllSpots = true;
+                        });
+                      });
+                    } else if (touchEvent is FlTapUpEvent) {
+                      // ignore: dead_code
+                      _timer?.cancel();
+                      setState(() {
+                        showTooltipsOnAllSpots = false;
+                      });
+                    }
+                  },
                   // must disable this for showingTooltipIndicators to work
                   handleBuiltInTouches: !showTooltipsOnAllSpots,
                   touchSpotThreshold: 20.0,
@@ -101,34 +102,32 @@ class HistoryOrderLineChart extends StatelessWidget {
                   leftTitles: AxisTitles(
                     sideTitles: SideTitles(
                       showTitles: true,
-                      //     getTextStyles: Theme.of(context).textTheme.bodyMedium != null
-                      //         ? (value) => Theme.of(context).textTheme.bodyMedium!
-                      //         : null,
-                      //     margin: 12.0,
-                      //     interval: _interval(groupedData),
-                      //   ),
-                      //   bottomTitles: SideTitles(
-                      //     showTitles: true,
-                      //     getTextStyles: Theme.of(context).textTheme.bodyMedium != null
-                      //         ? (value) => Theme.of(context).textTheme.bodyMedium!
-                      //         : null,
-                      //     margin: 24.0,
-                      //     // convert index value back to yyyymmdd
-                      //     getTitles: (idx) => groupedData[idx.toInt()][0],
-                      //   ),
-                      // ),
-                      // gridData: FlGridData(show: false),
-                      // minY: 0.0,
-                      // showingTooltipIndicators: showTooltipsOnAllSpots
-                      //     ? [
-                      //         ..._spots.map(
-                      //           (spot) => ShowingTooltipIndicators([LineBarSpot(_mainChart, 0, spot)]),
-                      //         ),
-                      //       ]
-                      //     : [],
-                      // lineBarsData: [_mainChart],
+                      getTextStyles: Theme.of(context).textTheme.bodyMedium != null
+                          ? (value) => Theme.of(context).textTheme.bodyMedium!
+                          : null,
+                      margin: 12.0,
+                      interval: _interval(groupedData),
+                    ),
+                    bottomTitles: SideTitles(
+                      showTitles: true,
+                      getTextStyles: Theme.of(context).textTheme.bodyMedium != null
+                          ? (value) => Theme.of(context).textTheme.bodyMedium!
+                          : null,
+                      margin: 24.0,
+                      // convert index value back to yyyymmdd
+                      getTitles: (idx) => groupedData[idx.toInt()][0],
                     ),
                   ),
+                  gridData: FlGridData(show: false),
+                  minY: 0.0,
+                  showingTooltipIndicators: showTooltipsOnAllSpots
+                      ? [
+                          ..._spots.map(
+                            (spot) => ShowingTooltipIndicators([LineBarSpot(_mainChart, 0, spot)]),
+                          ),
+                        ]
+                      : [],
+                  lineBarsData: [_mainChart],
                 ),
               ),
             ),
